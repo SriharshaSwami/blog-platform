@@ -17,6 +17,7 @@ import {
 } from '../styles/common'
 import { useAuth } from '../store/authStore'
 import axios from 'axios'
+import API_BASE from '../config/api'
 
 function UserProfile() {
   const loading = useAuth(state => state.loading)
@@ -36,7 +37,7 @@ function UserProfile() {
   const readAllArticles = async () => {
     setFetchError(null)
     try {
-      let res = await axios.get('http://localhost:4000/user-api/articles', { withCredentials: true })
+      let res = await axios.get(`${API_BASE}/user-api/articles`, { withCredentials: true })
       setArticles(res.data.payload || [])
       setShowArticles(true)
       sessionStorage.setItem("userShowArticles", "true")

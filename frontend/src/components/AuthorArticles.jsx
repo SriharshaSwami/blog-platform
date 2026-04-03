@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { useAuth } from "../store/authStore";
+import API_BASE from "../config/api";
 
 import {
   articleCardClass,
@@ -33,8 +34,8 @@ function AuthorArticles() {
         // Use a more robust URL that works even if user._id is briefly missing
         const authorId = user._id || user.userId || user.id;
         const url = authorId 
-            ? `http://localhost:4000/author-api/articles/${authorId}`
-            : `http://localhost:4000/author-api/articles`;
+            ? `${API_BASE}/author-api/articles/${authorId}`
+            : `${API_BASE}/author-api/articles`;
             
         const res = await axios.get(url, { withCredentials: true });
         setArticles(res.data.payload || []);

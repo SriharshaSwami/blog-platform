@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import API_BASE from '../config/api'
 import { toast } from 'react-hot-toast'
 import { cardClass, pageTitleClass, bodyText, pageWrapper, loadingClass } from '../styles/common'
 import UsersList from './UsersList'
@@ -13,7 +14,7 @@ function AdminProfile() {
   const fetchUsers = async () => {
     setLoading(true)
     try {
-      const res = await axios.get('http://localhost:4000/admin-api/users', { withCredentials: true })
+      const res = await axios.get(`${API_BASE}/admin-api/users`, { withCredentials: true })
       setUsers(res.data.payload || [])
     } catch (err) {
       toast.error(err.response?.data?.message || err.message || 'Failed to fetch users')
@@ -34,7 +35,7 @@ function AdminProfile() {
     setUsers(prev => prev.map(u => u._id === user._id ? { ...u, isActive: !isBlocking } : u))
     
     try {
-      const res = await axios.put(`http://localhost:4000${endpoint}`, { userEmail: user.email }, { withCredentials: true })
+      const res = await axios.put(`${API_BASE}${endpoint}`, { userEmail: user.email }, { withCredentials: true })
       toast.success(res.data.message)
     } catch (err) {
       toast.error(err.response?.data?.message || err.message || 'Failed to update status')

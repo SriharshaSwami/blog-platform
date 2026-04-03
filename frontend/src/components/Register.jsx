@@ -13,6 +13,7 @@ import {
   errorClass,
   loadingClass
 } from '../styles/common.js'
+import API_BASE from '../config/api'
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -46,11 +47,11 @@ function Register() {
     try {
       setLoading(true)
       if (newUser.role === "USER") {
-        let res = await axios.post("http://localhost:4000/user-api/users", formData, { withCredentials: true })
+        let res = await axios.post(`${API_BASE}/user-api/users`, formData, { withCredentials: true })
         if (res.status === 201) navigate('/login')
       }
       if (newUser.role === "AUTHOR") {
-        let res = await axios.post("http://localhost:4000/author-api/users", formData, { withCredentials: true })
+        let res = await axios.post(`${API_BASE}/author-api/users`, formData, { withCredentials: true })
         if (res.status === 201) navigate('/login')
       }
     } catch (err) {

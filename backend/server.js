@@ -14,7 +14,12 @@ export const app = exp()
 
 //ues cors middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174'],
+  origin: [
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'http://localhost:5174',
+    'https://blog-platform-nine-mu.vercel.app',
+  ],
   credentials: true,
 }))
 

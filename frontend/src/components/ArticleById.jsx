@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../store/authStore";
 import { toast } from "react-hot-toast";
+import API_BASE from "../config/api";
 import {
   articlePageWrapper,
   articleHeader,
@@ -41,7 +42,7 @@ function ArticleByID() {
     const getArticle = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`http://localhost:4000/user-api/article/${id}`, { withCredentials: true });
+        const res = await axios.get(`${API_BASE}/user-api/article/${id}`, { withCredentials: true });
         setArticle(res.data.payload);
       } catch (err) {
         setError(err.response?.data?.error || "Failed to load article");
@@ -69,7 +70,7 @@ function ArticleByID() {
 
     try {
       const res = await axios.patch(
-        `http://localhost:4000/author-api/articles/${id}/status`,
+        `${API_BASE}/author-api/articles/${id}/status`,
         { isArticleActive: newStatus },
         { withCredentials: true },
       );
@@ -86,7 +87,7 @@ function ArticleByID() {
 
   const refreshArticle = async () => {
     try {
-      const res = await axios.get(`http://localhost:4000/user-api/article/${id}`, { withCredentials: true });
+      const res = await axios.get(`${API_BASE}/user-api/article/${id}`, { withCredentials: true });
       setArticle(res.data.payload);
     } catch (err) {
       setError(err.response?.data?.error || "Failed to load article");
@@ -106,7 +107,7 @@ function ArticleByID() {
       const currentUserId = user?._id || user?.userId || user?.id;
       
       await axios.put(
-        "http://localhost:4000/user-api/articles",
+        `${API_BASE}/user-api/articles`,
         { userId: currentUserId, articleId: id, comment: comment.trim() },
         { withCredentials: true }
       );

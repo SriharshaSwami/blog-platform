@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import { formCard, formTitle, formGroup, labelClass, inputClass, submitBtn, errorClass } from '../styles/common'
+import API_BASE from '../config/api'
 
 function AddArticle() {
     const navigate = useNavigate()
@@ -17,7 +18,7 @@ function AddArticle() {
 
     const onSubmit = async (data) => {
         try {
-            await axios.post('http://localhost:4000/author-api/articles', data, { withCredentials: true })
+            await axios.post(`${API_BASE}/author-api/articles`, data, { withCredentials: true })
             toast.success("Article published successfully!")
             navigate('/authordashboard')
         } catch (err) {

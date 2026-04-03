@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import API_BASE from "../config/api";
 
 import {
     formCard,
@@ -33,7 +34,7 @@ function EditArticle() {
         if (!article) {
             const fetchArticle = async () => {
                 try {
-                    const res = await axios.get(`http://localhost:4000/common-api/articles/${id}`, { withCredentials: true })
+                    const res = await axios.get(`${API_BASE}/common-api/articles/${id}`, { withCredentials: true })
                     setArticle(res.data.payload)
                 } catch (err) {
                     toast.error("Failed to load article")
@@ -56,7 +57,7 @@ function EditArticle() {
     const updateArticle = async (data) => {
         try {
             data.articleId = article._id;
-            let res = await axios.put("http://localhost:4000/author-api/articles", data, { withCredentials: true });
+            let res = await axios.put(`${API_BASE}/author-api/articles`, data, { withCredentials: true });
             toast.success("Article updated successfully!")
             navigate(`/article/${article._id}`, {
                 state: res.data.payload,
