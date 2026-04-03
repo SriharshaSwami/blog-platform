@@ -55,8 +55,10 @@ export const errorClass         = "text-center bg-[#ff3b30]/[0.06] text-[#cc2f26
 export const successClass       = "bg-[#34c759]/[0.07] text-[#248a3d] border border-[#34c759]/20 rounded-xl px-4 py-3 text-sm"
 export const loadingClass       = "text-[#0066cc]/60 text-sm animate-pulse text-center py-10"
 export const emptyStateClass    = "text-center text-[#a1a1a6] py-16 text-sm"
-export const articleStatusActive = "absolute top-4 right-4 bg-green-500/10 text-green-600 text-[10px] font-bold px-2 py-1 rounded"
+export const articleStatusActive  = "absolute top-4 right-4 bg-green-500/10 text-green-600 text-[10px] font-bold px-2 py-1 rounded"
 export const articleStatusDeleted = "absolute top-4 right-4 bg-red-500/10 text-red-600 text-[10px] font-bold px-2 py-1 rounded"
+export const statusBadgeActive    = "inline-block bg-green-100 text-green-700 text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full"
+export const statusBadgeBlocked   = "inline-block bg-red-100 text-red-600 text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full"
 
 // ─── Divider ──────────────────────────────────────────
 export const divider            = "border-t border-[#e8e8ed] my-10"

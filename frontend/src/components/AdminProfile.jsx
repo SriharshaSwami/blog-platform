@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
-import { cardClass, pageTitleClass, bodyText } from '../styles/common'
+import { cardClass, pageTitleClass, bodyText, pageWrapper, loadingClass } from '../styles/common'
 import UsersList from './UsersList'
 import AuthorsList from './AuthorsList'
 

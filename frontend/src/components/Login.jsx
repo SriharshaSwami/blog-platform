@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../store/authStore'
 import { useState } from 'react'
-import { errorClass, formCard, formTitle, inputClass, submitBtn, formGroup } from '../styles/common'
+import { errorClass, formCard, formTitle, inputClass, submitBtn, formGroup, labelClass } from '../styles/common'
 import { toast } from 'react-hot-toast'
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/

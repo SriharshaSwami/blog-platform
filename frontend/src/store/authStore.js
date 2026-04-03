@@ -58,7 +58,7 @@ export let useAuth = create((set) => ({
             //set loading
             set({loading: true, error: null})
             console.log("Starting checkAuth call...")
-            const res = await axios.get('http://localhost:4000/common-api/check-auth', {withCredentials: true})
+            const res = await axios.get(`http://localhost:4000/common-api/check-auth?t=${Date.now()}`, {withCredentials: true})
             console.log("checkAuth success:", res.data)
             //update the store states
             set({

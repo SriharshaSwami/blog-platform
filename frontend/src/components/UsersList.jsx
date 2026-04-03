@@ -1,5 +1,5 @@
 import React from 'react'
-import { articleStatusActive, articleStatusDeleted } from '../styles/common'
+import { statusBadgeActive, statusBadgeBlocked } from '../styles/common'
 
 function UsersList({ users, onToggleBlock }) {
   if (!users || users.length === 0) {
@@ -32,8 +32,8 @@ function UsersList({ users, onToggleBlock }) {
               </td>
               <td className="px-6 py-4">{user.email}</td>
               <td className="px-6 py-4">
-                <span className={user.isActive ? articleStatusActive : articleStatusDeleted}>
-                  {user.isActive ? 'ACTIVE' : 'BLOCKED'}
+                <span className={user.isActive ? statusBadgeActive : statusBadgeBlocked}>
+                  {user.isActive ? 'Active' : 'Blocked'}
                 </span>
               </td>
               <td className="px-6 py-4 text-right">

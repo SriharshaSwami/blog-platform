@@ -86,6 +86,7 @@ commonRoute.get('/check-auth', verifyToken('USER', 'AUTHOR', 'ADMIN'), async (re
     //remove password
     delete userInDb.password
 
+    res.setHeader('Cache-Control', 'no-store')
     res.status(200).json({
         message: 'authenticated',
         payload: userInDb
