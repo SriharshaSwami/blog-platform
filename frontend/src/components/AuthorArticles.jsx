@@ -40,7 +40,11 @@ function AuthorArticles() {
         const res = await axios.get(url, { withCredentials: true });
         setArticles(res.data.payload || []);
       } catch (err) {
-        setError(err.response?.data?.error || "Failed to fetch articles");
+        if (err.response?.status === 404) {
+          setArticles([]);
+        } else {
+          setError(err.response?.data?.message || err.response?.data?.error || "Failed to fetch articles");
+        }
       } finally {
         setLoading(false);
       }
@@ -67,7 +71,7 @@ function AuthorArticles() {
   if (error) return <p className={errorClass}>{error}</p>;
 
   if (articles.length === 0) {
-    return <div className={emptyStateClass}>You haven't published any articles yet.</div>;
+    return <div className={emptyStateClass}>No articles published.</div>;
   }
 
   return (

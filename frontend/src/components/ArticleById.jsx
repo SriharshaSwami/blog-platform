@@ -16,6 +16,11 @@ import {
   articleActions,
   editBtn,
   deleteBtn,
+  emptyStateClass,
+  headingClass,
+  inputClass,
+  primaryBtn,
+  timestampClass,
   loadingClass,
   errorClass,
 } from "../styles/common.js";
@@ -152,10 +157,10 @@ function ArticleByID() {
       {user?.role === "AUTHOR" && String(article.author?._id || article.author) === String(user._id) && (
         <div className={articleActions + " border-y border-[#e8e8ed] py-10"}>
           <button className={editBtn} onClick={() => editArticle(article)}>
-            Modify Story
+            Modify Article
           </button>
           <button className={deleteBtn} onClick={toggleArticleStatus}>
-            {article.isArticleActive ? "Archive Publication" : "Restore Publication"}
+            {article.isArticleActive ? "Delete Article" : "Restore Article"}
           </button>
         </div>
       )}
