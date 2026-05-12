@@ -38,10 +38,10 @@ app.use('/common-api', commonRoute)
 //connect to DB
 const connectDB = async () => {
   try {
-    await connect(process.env.DB_URL)
+    await connect(process.env.MONGO_URI || process.env.DB_URL)
     console.log("DB connection is successful!")
     //start http server and assign port no
-    const port = process.env.PORT || 3000
+    const port = process.env.PORT || 5000
     app.listen(port, () => {
       console.log(`Server is listening on port ${port}`)
     })
