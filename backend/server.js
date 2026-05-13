@@ -1,4 +1,4 @@
-import { config } from 'dotenv'
+import { config } from 'dotenv' // Trigger restart
 config()
 import exp from 'express'
 import { connect } from 'mongoose'
