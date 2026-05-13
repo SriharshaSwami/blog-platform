@@ -38,8 +38,8 @@ Make sure you have Node.js and MongoDB installed on your system. You will also n
 
 ### 1. Clone the repository
 ```bash
-git clone <your-repository-url>
-cd blog-app
+git clone https://github.com/SriharshaSwami/blog-platform
+cd blog-platform
 ```
 
 ### 2. Backend Setup
