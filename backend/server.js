@@ -59,11 +59,12 @@ app.use((req, res, next) => {
 
 app.post('/logout', (req, res) => {
   //clear the cookie name 'token'
-  //Must match originam settings
+  //Must match original settings
+  const isProduction = process.env.NODE_ENV === 'production';
   res.clearCookie('token', {
     httpOnly: true,
-    secure: false,
-    sameSite: 'lax',
+    sameSite: isProduction ? "none" : "lax",
+    secure: isProduction,
     path: "/"
   })
 

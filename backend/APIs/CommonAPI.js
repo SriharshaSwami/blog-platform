@@ -18,10 +18,11 @@ commonRoute.post('/login', async (req, res) => {
     //call authenticate service
     let {token, user} = await authenticate(userCred)
     //save received token as HttpOnlyCookie
+    const isProduction = process.env.NODE_ENV === 'production';
     res.cookie("token", token,{
         httpOnly: true,
-        sameSite: "lax",
-        secure: false,
+        sameSite: isProduction ? "none" : "lax",
+        secure: isProduction,
         path: "/"
     })
     //send res with user object (including role)
@@ -32,10 +33,11 @@ commonRoute.post('/login', async (req, res) => {
 commonRoute.get('/logout', (req,res) =>{
     //clear the cookie name 'token'
     //Must match original settings
+    const isProduction = process.env.NODE_ENV === 'production';
     res.clearCookie('token', {
         httpOnly: true,
-        secure: false,
-        sameSite: 'lax',
+        sameSite: isProduction ? "none" : "lax",
+        secure: isProduction,
         path: "/"
     })
 
