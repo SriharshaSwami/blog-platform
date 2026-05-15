@@ -86,7 +86,7 @@ function Register() {
             </label>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className={formGroup}>
               <label className={labelClass}>FIRST NAME</label>
               <input className={inputClass} type='text' placeholder='Jobs' {...register('firstName', { required: 'Required' })} />

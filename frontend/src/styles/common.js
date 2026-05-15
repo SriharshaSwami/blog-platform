@@ -25,7 +25,7 @@ export const secondaryBtn   = "border border-[#d2d2d7] text-[#1d1d1f] font-mediu
 export const ghostBtn       = "text-[#0066cc] font-medium hover:text-[#004499] transition-colors cursor-pointer text-sm"
 
 // ─── Forms ────────────────────────────────────────────
-export const formCard       = "bg-[#f5f5f7] rounded-2xl p-10 max-w-md mx-auto"
+export const formCard       = "bg-[#f5f5f7] rounded-2xl p-6 sm:p-10 max-w-md mx-auto"
 export const formTitle      = "text-2xl font-bold text-[#1d1d1f] tracking-tight text-center mb-7"
 export const labelClass     = "text-xs font-medium text-[#6e6e73] mb-1.5 block"
 export const inputClass     = "w-full bg-white border border-[#d2d2d7] rounded-xl px-4 py-2.5 text-[#1d1d1f] text-sm placeholder:text-[#a1a1a6] focus:outline-none focus:border-[#0066cc] focus:ring-2 focus:ring-[#0066cc]/10 transition"
@@ -33,7 +33,7 @@ export const formGroup      = "mb-4"
 export const submitBtn      = "w-full bg-[#0066cc] text-white font-semibold py-2.5 rounded-full hover:bg-[#004499] transition-colors cursor-pointer mt-2 text-sm tracking-tight"
 
 // ─── Navbar ───────────────────────────────────────────
-export const navbarClass        = "bg-white/85 backdrop-blur-xl backdrop-saturate-150 border-b border-[#e8e8ed] px-8 h-[52px] flex items-center sticky top-0 z-50"
+export const navbarClass        = "bg-white/85 backdrop-blur-xl backdrop-saturate-150 border-b border-[#e8e8ed] px-4 sm:px-8 h-[52px] flex items-center sticky top-0 z-50"
 export const navContainerClass  = "max-w-5xl mx-auto w-full flex items-center justify-between"
 export const navBrandClass      = "text-base font-semibold text-[#1d1d1f] tracking-tight"
 export const navLinksClass      = "flex items-center gap-7"
